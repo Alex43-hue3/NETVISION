@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,186 +11,387 @@
 
 <title>NETVISION</title>
 
+<meta
+    name="description"
+    content="NETVISION - Todo tu entretenimiento en un solo lugar."
+>
+
 <style>
 
-:root{
-    --bg:#02060b;
-    --panel:#06101a;
-    --panel2:#081522;
+/* =========================================================
+   NETVISION
+   INDEX PRINCIPAL
+========================================================= */
 
-    --blue:#0b8cff;
-    --blue2:#27a8ff;
+:root {
 
-    --purple:#d946ff;
-    --green:#32f32d;
+    --bg:
+        #03070d;
 
-    --text:#f7f9fc;
-    --muted:#aab5c4;
+    --bg-soft:
+        #07111d;
 
-    --border:rgba(255,255,255,.12);
+    --panel:
+        rgba(7, 16, 27, .78);
+
+    --border:
+        rgba(255,255,255,.12);
+
+    --blue:
+        #1597ff;
+
+    --blue-light:
+        #54b9ff;
+
+    --purple:
+        #c44cff;
+
+    --green:
+        #39ff14;
+
+    --text:
+        #f7f9fc;
+
+    --muted:
+        #a1adbc;
 }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing:
+        border-box;
+
+    margin:
+        0;
+
+    padding:
+        0;
 }
+
 
 html,
-body{
-    width:100%;
-    height:100%;
-    min-height:100%;
+body {
 
-    background:var(--bg);
-    color:var(--text);
+    width:
+        100%;
+
+    height:
+        100%;
+
+    min-height:
+        100%;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
-
-    overflow:hidden;
-}
-
-button{
-    font-family:inherit;
 }
 
 
-/* =========================================================
-   APP
-========================================================= */
+body {
 
-#app{
-    width:100%;
-    height:100%;
-
-    min-height:100dvh;
-
-    position:relative;
+    position:
+        relative;
 }
 
 
 /* =========================================================
-   PERFIL
+   FONDO
 ========================================================= */
 
-.profile-screen{
+body::before {
 
-    position:fixed;
-    inset:0;
+    content:
+        "";
 
-    z-index:1000;
+    position:
+        fixed;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    inset:
+        0;
+
+    z-index:
+        -3;
 
     background:
+
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(21,151,255,.12),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(21,151,255,.08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 50%,
+            rgba(0,100,255,.08),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            180deg,
+            #02050a 0%,
+            #030811 50%,
+            #02050a 100%
+        );
+}
+
+
+/* =========================================================
+   EFECTO DECORATIVO
+========================================================= */
+
+body::after {
+
+    content:
+        "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        -2;
+
+    pointer-events:
+        none;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.55),
+            transparent 20%,
+            transparent 80%,
+            rgba(0,0,0,.55)
+        );
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+button {
+
+    font-family:
+        inherit;
+
+    border:
+        0;
+
+    cursor:
+        pointer;
+}
+
+
+/* =========================================================
+   PANTALLA DE PERFIL
+========================================================= */
+
+.profile-screen {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        1000;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        30px;
+
+    background:
+
         radial-gradient(
             circle at center,
-            rgba(12,32,52,.9),
-            #02060b 68%
+            rgba(15,31,48,.95),
+            rgba(2,5,9,.99) 70%
         );
 
-    padding:30px;
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
 }
 
-.profile-container{
 
-    width:min(900px,100%);
+.profile-screen.hidden {
 
-    text-align:center;
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
 }
 
-.brand-small{
 
-    color:var(--blue2);
+.profile-container {
 
-    font-size:15px;
+    width:
+        min(900px, 100%);
 
-    font-weight:900;
-
-    letter-spacing:3px;
-
-    margin-bottom:20px;
+    text-align:
+        center;
 }
 
-.profile-container h1{
+
+.profile-brand {
+
+    color:
+        var(--blue-light);
 
     font-size:
-        clamp(30px,5vw,52px);
+        15px;
 
-    margin-bottom:10px;
+    font-weight:
+        900;
+
+    letter-spacing:
+        4px;
+
+    margin-bottom:
+        20px;
 }
 
-.profile-subtitle{
 
-    color:var(--muted);
+.profile-container h1 {
 
-    font-size:16px;
+    font-size:
+        clamp(30px, 5vw, 54px);
 
-    margin-bottom:45px;
+    line-height:
+        1.05;
+
+    font-weight:
+        800;
+
+    margin-bottom:
+        12px;
 }
 
-.profile-list{
 
-    display:flex;
+.profile-subtitle {
 
-    justify-content:center;
+    color:
+        var(--muted);
 
-    align-items:flex-start;
+    font-size:
+        16px;
 
-    gap:45px;
-
-    flex-wrap:wrap;
+    margin-bottom:
+        45px;
 }
 
-.profile{
 
-    width:160px;
+/* =========================================================
+   PERFILES
+========================================================= */
 
-    border:0;
+.profile-list {
 
-    background:transparent;
+    display:
+        flex;
 
-    color:white;
+    align-items:
+        flex-start;
 
-    cursor:pointer;
+    justify-content:
+        center;
 
-    transition:.25s;
+    gap:
+        55px;
+
+    flex-wrap:
+        wrap;
 }
 
-.profile:hover{
 
-    transform:translateY(-8px);
+.profile-item {
+
+    width:
+        170px;
+
+    background:
+        transparent;
+
+    color:
+        white;
+
+    transition:
+        transform .2s ease;
 }
 
-.avatar{
 
-    width:130px;
-    height:130px;
+.profile-item:hover {
 
-    margin:auto;
+    transform:
+        translateY(-8px);
+}
 
-    border-radius:50%;
 
-    display:flex;
+.profile-avatar {
 
-    align-items:center;
-    justify-content:center;
+    width:
+        130px;
+
+    height:
+        130px;
+
+    margin:
+        0 auto 15px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     background:
         linear-gradient(
             135deg,
-            #0787ff,
-            #55c4ff
+            #087ee8,
+            #59c1ff
         );
-
-    font-size:48px;
-
-    font-weight:900;
 
     border:
         3px solid
@@ -197,59 +399,86 @@ button{
 
     box-shadow:
         0 0 45px
-        rgba(11,140,255,.25);
+        rgba(21,151,255,.22);
+
+    color:
+        white;
+
+    font-size:
+        48px;
+
+    font-weight:
+        900;
 }
 
-.avatar.add{
 
-    background:#08131f;
+.profile-avatar.add {
+
+    background:
+        rgba(10,20,31,.9);
+
+    color:
+        var(--blue-light);
 
     border:
         2px dashed
-        rgba(39,168,255,.5);
+        rgba(84,185,255,.45);
 
-    color:var(--blue2);
+    box-shadow:
+        none;
 }
 
-.profile-name{
 
-    margin-top:16px;
+.profile-name {
 
-    font-size:17px;
+    font-size:
+        17px;
 
-    font-weight:800;
+    font-weight:
+        800;
 }
 
-.profile-extra{
 
-    margin-top:5px;
+.profile-add {
 
-    color:var(--muted);
+    color:
+        var(--muted);
 
-    font-size:12px;
+    font-size:
+        12px;
+
+    margin-top:
+        4px;
 }
 
 
 /* =========================================================
-   HOME
+   APLICACIÓN
 ========================================================= */
 
-.home-screen{
+#app {
 
-    width:100%;
-    height:100%;
+    width:
+        100%;
 
-    min-height:100dvh;
+    height:
+        100%;
 
-    display:none;
+    min-height:
+        100%;
 
-    flex-direction:column;
+    display:
+        none;
 
-    position:relative;
+    flex-direction:
+        column;
+}
 
-    overflow:hidden;
 
-    background:#02060b;
+#app.visible {
+
+    display:
+        flex;
 }
 
 
@@ -257,401 +486,580 @@ button{
    HEADER
 ========================================================= */
 
-.header{
+.navbar {
 
-    height:88px;
+    flex:
+        0 0 88px;
 
-    min-height:88px;
+    height:
+        88px;
 
-    display:flex;
+    display:
+        flex;
 
-    align-items:center;
+    align-items:
+        center;
 
-    justify-content:space-between;
+    justify-content:
+        space-between;
 
-    padding:0 36px;
+    padding:
+        0 38px;
 
     background:
-        rgba(0,0,0,.88);
+        rgba(2,6,11,.92);
 
     border-bottom:
         1px solid
-        rgba(255,255,255,.07);
+        rgba(255,255,255,.08);
 
-    position:relative;
-
-    z-index:5;
+    backdrop-filter:
+        blur(18px);
 }
 
-.logo{
 
-    font-size:31px;
+.logo {
 
-    font-weight:900;
+    font-size:
+        32px;
 
-    letter-spacing:-1px;
+    font-weight:
+        900;
 
-    color:white;
+    letter-spacing:
+        1px;
+
+    color:
+        white;
 }
 
-.logo span{
 
-    color:var(--blue2);
+.logo span {
+
+    color:
+        var(--blue);
 }
 
-.profile-button{
 
-    display:flex;
+/* =========================================================
+   PERFIL HEADER
+========================================================= */
 
-    align-items:center;
+.profile-button {
 
-    gap:12px;
+    display:
+        flex;
 
-    padding:5px 13px 5px 5px;
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        7px 15px 7px 8px;
 
     border:
         1px solid
-        rgba(255,255,255,.15);
+        rgba(84,185,255,.22);
 
-    border-radius:35px;
+    border-radius:
+        40px;
 
     background:
-        rgba(5,12,20,.8);
+        rgba(7,15,25,.8);
 
-    color:white;
+    color:
+        white;
 
-    cursor:pointer;
+    font-size:
+        15px;
 
-    font-size:18px;
+    transition:
+        background .2s ease,
+        border-color .2s ease;
 }
 
-.small-avatar{
 
-    width:48px;
-    height:48px;
+.profile-button:hover {
 
-    border-radius:50%;
+    background:
+        rgba(21,151,255,.12);
 
-    display:flex;
+    border-color:
+        rgba(84,185,255,.5);
+}
 
-    align-items:center;
-    justify-content:center;
+
+.header-avatar {
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     background:
         linear-gradient(
             135deg,
-            #087cff,
-            #31aaff
+            #087ee8,
+            #55c1ff
         );
 
-    font-size:22px;
+    font-size:
+        18px;
 
-    font-weight:900;
-}
-
-.arrow{
-
-    font-size:20px;
+    font-weight:
+        900;
 }
 
 
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-.home-background{
-
-    position:absolute;
-
-    inset:88px 0 0;
-
-    z-index:0;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(0,93,170,.18),
-            transparent 50%
-        ),
-        #02060b;
-}
-
-.home-background::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.9),
-            rgba(0,0,0,.2) 50%,
-            rgba(0,0,0,.9)
-        );
-}
-
-
-/* =========================================================
-   HOME CONTENT
-========================================================= */
-
-.home-content{
-
-    position:relative;
-
-    z-index:2;
-
-    flex:1;
-
-    min-height:0;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:30px 40px 20px;
-
-    overflow:hidden;
-}
-
-.home-brand{
-
-    color:var(--blue2);
-
-    font-size:23px;
-
-    font-weight:900;
-
-    letter-spacing:4px;
-
-    margin-bottom:12px;
-}
-
-.home-title{
-
-    text-align:center;
+.profile-arrow {
 
     font-size:
-        clamp(42px,5vw,78px);
+        15px;
 
-    line-height:1;
-
-    font-weight:900;
-
-    max-width:1000px;
-}
-
-.home-title span{
-
-    color:var(--blue2);
-}
-
-.home-description{
-
-    margin-top:24px;
-
-    text-align:center;
-
-    color:#c9d2de;
-
-    font-size:
-        clamp(16px,1.5vw,23px);
-
-    line-height:1.5;
-
-    max-width:800px;
+    color:
+        #aab5c3;
 }
 
 
 /* =========================================================
-   CONTENT CARDS
+   MENÚ PRINCIPAL
 ========================================================= */
 
-.menu-cards{
+.main-menu {
 
-    width:min(1250px,100%);
+    flex:
+        1;
 
-    display:grid;
+    min-height:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        25px 45px 18px;
+
+    overflow:
+        hidden;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    width:
+        100%;
+
+    max-width:
+        1100px;
+
+    text-align:
+        center;
+
+    margin-bottom:
+        45px;
+}
+
+
+.hero-brand {
+
+    color:
+        var(--blue-light);
+
+    font-size:
+        20px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        4px;
+
+    margin-bottom:
+        15px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(42px, 5vw, 76px);
+
+    line-height:
+        .98;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -2px;
+
+    margin-bottom:
+        15px;
+}
+
+
+.hero h1 span {
+
+    display:
+        block;
+
+    color:
+        var(--blue);
+}
+
+
+.hero p {
+
+    color:
+        #c4ceda;
+
+    font-size:
+        clamp(16px, 2vw, 22px);
+
+    line-height:
+        1.45;
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.menu-cards {
+
+    width:
+        min(1220px, 100%);
+
+    display:
+        grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+        repeat(3, 1fr);
 
-    gap:25px;
-
-    margin-top:55px;
+    gap:
+        25px;
 }
 
-.menu-card{
 
-    min-height:370px;
+.menu-card {
 
-    border-radius:20px;
+    position:
+        relative;
 
-    border:1px solid;
+    min-height:
+        330px;
 
-    display:flex;
+    border:
+        1px solid
+        var(--card-color);
 
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    position:relative;
-
-    overflow:hidden;
+    border-radius:
+        22px;
 
     background:
         linear-gradient(
             180deg,
-            rgba(7,19,31,.78),
-            rgba(1,6,11,.97)
+            var(--card-bg),
+            rgba(2,7,13,.94)
         );
 
-    cursor:pointer;
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+    color:
+        white;
 
     transition:
-        transform .25s,
-        box-shadow .25s;
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
-.menu-card:hover{
 
-    transform:translateY(-8px);
+.menu-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            var(--card-glow),
+            transparent 65%
+        );
+
+    opacity:
+        .55;
+
+    pointer-events:
+        none;
 }
 
-.menu-card.tv{
 
-    border-color:#009dff;
+.menu-card:hover {
+
+    transform:
+        translateY(-7px);
 
     box-shadow:
-        inset 0 0 50px
-        rgba(0,136,255,.08);
+        0 18px 60px
+        var(--card-shadow);
 }
 
-.menu-card.movies{
 
-    border-color:#d43cff;
+/* =========================================================
+   COLORES TARJETAS
+========================================================= */
 
-    box-shadow:
-        inset 0 0 50px
-        rgba(212,60,255,.08);
+.menu-card.tv {
+
+    --card-color:
+        #1597ff;
+
+    --card-bg:
+        rgba(12,52,88,.38);
+
+    --card-glow:
+        rgba(21,151,255,.18);
+
+    --card-shadow:
+        rgba(21,151,255,.16);
 }
 
-.menu-card.series{
 
-    border-color:#39f52f;
+.menu-card.movies {
 
-    box-shadow:
-        inset 0 0 50px
-        rgba(57,245,47,.08);
+    --card-color:
+        #c44cff;
+
+    --card-bg:
+        rgba(71,19,87,.34);
+
+    --card-glow:
+        rgba(196,76,255,.18);
+
+    --card-shadow:
+        rgba(196,76,255,.15);
 }
 
-.card-icon{
 
-    width:140px;
+.menu-card.series {
 
-    height:140px;
+    --card-color:
+        #39ff14;
 
-    display:flex;
+    --card-bg:
+        rgba(17,65,16,.34);
 
-    align-items:center;
-    justify-content:center;
+    --card-glow:
+        rgba(57,255,20,.15);
 
-    margin-bottom:25px;
+    --card-shadow:
+        rgba(57,255,20,.12);
 }
 
-.card-icon svg{
 
-    width:135px;
-    height:135px;
+/* =========================================================
+   ICONO
+========================================================= */
 
-    fill:none;
+.menu-icon {
 
-    stroke-width:4;
+    width:
+        125px;
+
+    height:
+        125px;
+
+    margin-bottom:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        var(--card-color);
 }
 
-.tv .card-icon svg{
-    stroke:#1ba1ff;
+
+.menu-icon svg {
+
+    width:
+        105px;
+
+    height:
+        105px;
+
+    stroke:
+        currentColor;
+
+    fill:
+        none;
+
+    stroke-width:
+        2;
+
+    stroke-linecap:
+        round;
+
+    stroke-linejoin:
+        round;
+
     filter:
         drop-shadow(
             0 0 12px
-            rgba(27,161,255,.6)
+            var(--card-color)
         );
 }
 
-.movies .card-icon svg{
-    stroke:#db4dff;
-    filter:
-        drop-shadow(
-            0 0 12px
-            rgba(219,77,255,.6)
-        );
+
+.menu-card h2 {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    font-size:
+        32px;
+
+    font-weight:
+        900;
+
+    margin-bottom:
+        8px;
 }
 
-.series .card-icon svg{
-    stroke:#42ff35;
-    filter:
-        drop-shadow(
-            0 0 12px
-            rgba(66,255,53,.6)
-        );
+
+.menu-card p {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    color:
+        #c0cad5;
+
+    font-size:
+        17px;
+
+    margin-bottom:
+        22px;
 }
 
-.menu-card h2{
 
-    font-size:35px;
+/* =========================================================
+   FLECHA
+========================================================= */
 
-    margin-bottom:12px;
+.menu-arrow {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--card-color);
+
+    color:
+        white;
+
+    font-size:
+        32px;
+
+    font-weight:
+        300;
+
+    box-shadow:
+        0 0 28px
+        var(--card-color);
+
+    transition:
+        transform .2s ease;
 }
 
-.menu-card p{
 
-    color:#d2d9e3;
+.menu-card:hover .menu-arrow {
 
-    font-size:18px;
-}
-
-.card-arrow{
-
-    margin-top:25px;
-
-    width:62px;
-    height:62px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    color:white;
-
-    font-size:35px;
-
-    font-weight:300;
-}
-
-.tv .card-arrow{
-    background:#087dff;
-}
-
-.movies .card-arrow{
-    background:#8d29b9;
-}
-
-.series .card-arrow{
-    background:#1dbd20;
+    transform:
+        translateX(5px);
 }
 
 
@@ -659,129 +1067,124 @@ button{
    FOOTER
 ========================================================= */
 
-.footer{
+.footer {
 
-    flex:0 0 auto;
+    flex:
+        0 0 45px;
 
-    text-align:center;
+    height:
+        45px;
 
-    color:#718094;
+    display:
+        flex;
 
-    font-size:16px;
+    align-items:
+        center;
 
-    padding:15px;
+    justify-content:
+        center;
+
+    color:
+        #788697;
+
+    font-size:
+        14px;
+
+    gap:
+        15px;
 }
 
-.footer span{
-    color:var(--blue2);
-}
 
+.footer strong {
 
-/* =========================================================
-   PERFIL MENU
-========================================================= */
-
-.profile-menu{
-
-    position:absolute;
-
-    top:78px;
-
-    right:30px;
-
-    z-index:20;
-
-    display:none;
-
-    width:190px;
-
-    padding:8px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-
-    border-radius:12px;
-
-    background:
-        #07101a;
-
-    box-shadow:
-        0 15px 50px
-        rgba(0,0,0,.5);
-}
-
-.profile-menu button{
-
-    width:100%;
-
-    border:0;
-
-    background:transparent;
-
-    color:white;
-
-    padding:12px;
-
-    text-align:left;
-
-    border-radius:8px;
-
-    cursor:pointer;
-}
-
-.profile-menu button:hover{
-
-    background:
-        rgba(14,143,255,.15);
+    color:
+        var(--blue-light);
 }
 
 
 /* =========================================================
-   TABLET
+   RESPONSIVE
 ========================================================= */
 
-@media(max-width:1000px){
+@media (max-width: 1000px) {
 
-    .header{
-        height:70px;
-        min-height:70px;
-        padding:0 22px;
+    .navbar {
+
+        flex-basis:
+            70px;
+
+        height:
+            70px;
+
+        padding:
+            0 25px;
     }
 
-    .home-background{
-        inset:70px 0 0;
+
+    .logo {
+
+        font-size:
+            25px;
     }
 
-    .logo{
-        font-size:24px;
+
+    .hero {
+
+        margin-bottom:
+            25px;
     }
 
-    .menu-cards{
-        gap:15px;
+
+    .hero h1 {
+
+        font-size:
+            clamp(35px, 6vw, 55px);
     }
 
-    .menu-card{
-        min-height:300px;
+
+    .menu-card {
+
+        min-height:
+            260px;
     }
 
-    .card-icon{
-        width:100px;
-        height:100px;
+
+    .menu-icon {
+
+        width:
+            90px;
+
+        height:
+            90px;
+
+        margin-bottom:
+            12px;
     }
 
-    .card-icon svg{
-        width:100px;
-        height:100px;
+
+    .menu-icon svg {
+
+        width:
+            75px;
+
+        height:
+            75px;
     }
 
-    .menu-card h2{
-        font-size:27px;
+
+    .menu-card h2 {
+
+        font-size:
+            25px;
     }
 
-    .menu-card p{
-        font-size:15px;
+
+    .menu-card p {
+
+        font-size:
+            14px;
     }
+
 }
 
 
@@ -789,594 +1192,1040 @@ button{
    MÓVIL
 ========================================================= */
 
-@media(max-width:650px){
+@media (max-width: 650px) {
 
     html,
-    body{
-        overflow:hidden;
+    body {
+
+        overflow:
+            hidden;
     }
 
-    .header{
-        height:58px;
-        min-height:58px;
-        padding:0 12px;
-    }
 
-    .home-background{
-        inset:58px 0 0;
-    }
+    .navbar {
 
-    .logo{
-        font-size:20px;
-    }
+        flex-basis:
+            58px;
 
-    .profile-button{
-        font-size:13px;
-        gap:7px;
-        padding-right:8px;
-    }
-
-    .small-avatar{
-        width:36px;
-        height:36px;
-        font-size:17px;
-    }
-
-    .home-content{
-        padding:18px 12px 8px;
-        justify-content:center;
-    }
-
-    .home-brand{
-        font-size:14px;
-        letter-spacing:3px;
-        margin-bottom:8px;
-    }
-
-    .home-title{
-        font-size:
-            clamp(27px,8vw,42px);
-
-        line-height:1.02;
-    }
-
-    .home-description{
-        font-size:12px;
-        margin-top:13px;
-        max-width:330px;
-    }
-
-    .menu-cards{
-
-        width:100%;
-
-        grid-template-columns:
-            repeat(3,1fr);
-
-        gap:7px;
-
-        margin-top:22px;
-    }
-
-    .menu-card{
+        height:
+            58px;
 
         min-height:
-            min(300px,42vh);
+            58px;
 
-        border-radius:12px;
+        padding:
+            0 12px;
     }
 
-    .card-icon{
 
-        width:70px;
-        height:70px;
+    .logo {
 
-        margin-bottom:10px;
-    }
-
-    .card-icon svg{
-        width:68px;
-        height:68px;
-    }
-
-    .menu-card h2{
         font-size:
-            clamp(14px,4vw,20px);
+            19px;
 
-        margin-bottom:6px;
+        letter-spacing:
+            .5px;
     }
 
-    .menu-card p{
-        font-size:9px;
+
+    .profile-button {
+
+        gap:
+            7px;
+
+        padding:
+            4px 9px 4px 5px;
+
+        font-size:
+            11px;
     }
 
-    .card-arrow{
-        width:38px;
-        height:38px;
 
-        margin-top:13px;
+    .header-avatar {
 
-        font-size:23px;
+        width:
+            34px;
+
+        height:
+            34px;
+
+        font-size:
+            14px;
     }
 
-    .footer{
-        font-size:9px;
-        padding:8px;
+
+    .profile-arrow {
+
+        font-size:
+            11px;
     }
 
-    .profile-screen{
-        padding:15px;
+
+    .main-menu {
+
+        padding:
+            14px 12px 8px;
+
+        justify-content:
+            center;
+
+        gap:
+            0;
     }
 
-    .profile-container h1{
-        font-size:27px;
+
+    .hero {
+
+        margin-bottom:
+            18px;
+
+        flex:
+            0 0 auto;
     }
 
-    .profile-subtitle{
-        font-size:12px;
-        margin-bottom:25px;
+
+    .hero-brand {
+
+        font-size:
+            10px;
+
+        letter-spacing:
+            2.5px;
+
+        margin-bottom:
+            8px;
     }
 
-    .profile-list{
-        gap:20px;
+
+    .hero h1 {
+
+        font-size:
+            clamp(25px, 8vw, 37px);
+
+        letter-spacing:
+            -1px;
+
+        margin-bottom:
+            8px;
     }
 
-    .profile{
-        width:105px;
+
+    .hero p {
+
+        font-size:
+            11px;
+
+        line-height:
+            1.35;
+
+        max-width:
+            340px;
+
+        margin:
+            0 auto;
     }
 
-    .avatar{
-        width:82px;
-        height:82px;
-        font-size:29px;
+
+    .menu-cards {
+
+        width:
+            100%;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap:
+            7px;
+
+        flex:
+            0 0 auto;
     }
 
-    .profile-name{
-        font-size:12px;
+
+    .menu-card {
+
+        min-height:
+            205px;
+
+        border-radius:
+            13px;
     }
 
-    .profile-extra{
-        font-size:9px;
+
+    .menu-icon {
+
+        width:
+            65px;
+
+        height:
+            65px;
+
+        margin-bottom:
+            8px;
     }
+
+
+    .menu-icon svg {
+
+        width:
+            58px;
+
+        height:
+            58px;
+    }
+
+
+    .menu-card h2 {
+
+        font-size:
+            17px;
+
+        margin-bottom:
+            5px;
+    }
+
+
+    .menu-card p {
+
+        font-size:
+            9px;
+
+        margin-bottom:
+            10px;
+    }
+
+
+    .menu-arrow {
+
+        width:
+            34px;
+
+        height:
+            34px;
+
+        font-size:
+            20px;
+    }
+
+
+    .footer {
+
+        flex-basis:
+            25px;
+
+        height:
+            25px;
+
+        font-size:
+            8px;
+
+        gap:
+            7px;
+    }
+
+
+    /* =============================================
+       PERFIL MÓVIL
+    ============================================= */
+
+    .profile-screen {
+
+        padding:
+            12px;
+
+        overflow:
+            hidden;
+    }
+
+
+    .profile-brand {
+
+        font-size:
+            11px;
+
+        letter-spacing:
+            2.5px;
+
+        margin-bottom:
+            10px;
+    }
+
+
+    .profile-container h1 {
+
+        font-size:
+            clamp(23px, 7vw, 30px);
+
+        margin-bottom:
+            7px;
+    }
+
+
+    .profile-subtitle {
+
+        font-size:
+            10px;
+
+        margin-bottom:
+            20px;
+    }
+
+
+    .profile-list {
+
+        gap:
+            18px;
+    }
+
+
+    .profile-item {
+
+        width:
+            100px;
+    }
+
+
+    .profile-avatar {
+
+        width:
+            72px;
+
+        height:
+            72px;
+
+        font-size:
+            27px;
+
+        margin-bottom:
+            9px;
+    }
+
+
+    .profile-avatar.add {
+
+        font-size:
+            27px;
+    }
+
+
+    .profile-name {
+
+        font-size:
+            11px;
+    }
+
+
+    .profile-add {
+
+        font-size:
+            8px;
+    }
+
 }
 
 
 /* =========================================================
-   MÓVIL HORIZONTAL
+   TELÉFONOS MUY PEQUEÑOS
 ========================================================= */
 
-@media(max-width:900px) and (orientation:landscape){
+@media (max-width: 380px) {
 
-    .header{
-        height:48px;
-        min-height:48px;
+    .navbar {
+
+        height:
+            52px;
+
+        min-height:
+            52px;
+
+        flex-basis:
+            52px;
     }
 
-    .home-background{
-        inset:48px 0 0;
+
+    .logo {
+
+        font-size:
+            17px;
     }
 
-    .home-content{
-        padding:8px 20px;
+
+    .header-avatar {
+
+        width:
+            30px;
+
+        height:
+            30px;
     }
 
-    .home-brand{
-        font-size:11px;
-        margin-bottom:4px;
+
+    .profile-button {
+
+        font-size:
+            9px;
+
+        padding:
+            3px 7px 3px 4px;
     }
 
-    .home-title{
-        font-size:28px;
+
+    .main-menu {
+
+        padding:
+            8px 8px 5px;
     }
 
-    .home-description{
-        font-size:10px;
-        margin-top:6px;
+
+    .hero {
+
+        margin-bottom:
+            10px;
     }
 
-    .menu-cards{
-        margin-top:12px;
+
+    .hero-brand {
+
+        font-size:
+            8px;
+
+        margin-bottom:
+            5px;
     }
 
-    .menu-card{
-        min-height:190px;
+
+    .hero h1 {
+
+        font-size:
+            23px;
     }
 
-    .card-icon{
-        width:55px;
-        height:55px;
-        margin-bottom:5px;
+
+    .hero p {
+
+        font-size:
+            9px;
     }
 
-    .card-icon svg{
-        width:55px;
-        height:55px;
+
+    .menu-cards {
+
+        gap:
+            5px;
     }
 
-    .menu-card h2{
-        font-size:18px;
+
+    .menu-card {
+
+        min-height:
+            175px;
+
+        border-radius:
+            10px;
     }
 
-    .menu-card p{
-        font-size:9px;
+
+    .menu-icon {
+
+        width:
+            52px;
+
+        height:
+            52px;
     }
 
-    .card-arrow{
-        width:30px;
-        height:30px;
-        margin-top:8px;
-        font-size:18px;
+
+    .menu-icon svg {
+
+        width:
+            48px;
+
+        height:
+            48px;
     }
 
-    .footer{
-        padding:5px;
-        font-size:8px;
+
+    .menu-card h2 {
+
+        font-size:
+            14px;
     }
+
+
+    .menu-card p {
+
+        font-size:
+            7px;
+
+        margin-bottom:
+            7px;
+    }
+
+
+    .menu-arrow {
+
+        width:
+            28px;
+
+        height:
+            28px;
+
+        font-size:
+            17px;
+    }
+
+
+    .footer {
+
+        font-size:
+            7px;
+    }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE MÓVIL
+========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    .navbar {
+
+        height:
+            48px;
+
+        min-height:
+            48px;
+
+        flex-basis:
+            48px;
+    }
+
+
+    .logo {
+
+        font-size:
+            18px;
+    }
+
+
+    .header-avatar {
+
+        width:
+            30px;
+
+        height:
+            30px;
+    }
+
+
+    .main-menu {
+
+        padding:
+            8px 30px 5px;
+    }
+
+
+    .hero {
+
+        margin-bottom:
+            10px;
+    }
+
+
+    .hero-brand {
+
+        font-size:
+            9px;
+
+        margin-bottom:
+            4px;
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            28px;
+
+        margin-bottom:
+            5px;
+    }
+
+
+    .hero p {
+
+        font-size:
+            10px;
+    }
+
+
+    .menu-cards {
+
+        max-width:
+            900px;
+
+        gap:
+            10px;
+    }
+
+
+    .menu-card {
+
+        min-height:
+            155px;
+
+        border-radius:
+            10px;
+    }
+
+
+    .menu-icon {
+
+        width:
+            48px;
+
+        height:
+            48px;
+
+        margin-bottom:
+            5px;
+    }
+
+
+    .menu-icon svg {
+
+        width:
+            44px;
+
+        height:
+            44px;
+    }
+
+
+    .menu-card h2 {
+
+        font-size:
+            15px;
+    }
+
+
+    .menu-card p {
+
+        font-size:
+            8px;
+
+        margin-bottom:
+            7px;
+    }
+
+
+    .menu-arrow {
+
+        width:
+            28px;
+
+        height:
+            28px;
+
+        font-size:
+            17px;
+    }
+
+
+    .footer {
+
+        height:
+            20px;
+
+        flex-basis:
+            20px;
+
+        font-size:
+            7px;
+    }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<div id="app">
 
-    <!-- =====================================================
-         PERFIL
-    ====================================================== -->
+<!-- =========================================================
+     PANTALLA DE PERFILES
+========================================================= -->
 
-    <section
-        class="profile-screen"
-        id="profileScreen"
-    >
+<section
+    class="profile-screen"
+    id="profileScreen"
+>
 
-        <div class="profile-container">
+    <div class="profile-container">
 
-            <div class="brand-small">
-                NETVISION
-            </div>
-
-            <h1>
-                ¿Quién está viendo ahora?
-            </h1>
-
-            <p class="profile-subtitle">
-                Selecciona un perfil para continuar
-            </p>
-
-            <div class="profile-list">
-
-                <button
-                    class="profile"
-                    id="alexProfile"
-                >
-
-                    <div class="avatar">
-                        A
-                    </div>
-
-                    <div class="profile-name">
-                        Alex
-                    </div>
-
-                </button>
-
-
-                <button
-                    class="profile"
-                    id="addProfile"
-                >
-
-                    <div class="avatar add">
-                        +
-                    </div>
-
-                    <div class="profile-name">
-                        Agregar perfil
-                    </div>
-
-                    <div class="profile-extra">
-                        Nuevo perfil
-                    </div>
-
-                </button>
-
-            </div>
-
+        <div class="profile-brand">
+            NETVISION
         </div>
 
-    </section>
+        <h1>
+            ¿Quién está viendo ahora?
+        </h1>
+
+        <p class="profile-subtitle">
+            Selecciona un perfil para continuar
+        </p>
 
 
-    <!-- =====================================================
-         HOME
-    ====================================================== -->
-
-    <section
-        class="home-screen"
-        id="homeScreen"
-    >
-
-        <div class="home-background"></div>
+        <div class="profile-list">
 
 
-        <header class="header">
-
-            <div class="logo">
-                NET<span>VISION</span>
-            </div>
-
+            <!-- ALEX -->
 
             <button
-                class="profile-button"
-                id="profileButton"
+                class="profile-item"
+                id="alexProfile"
+                type="button"
             >
 
-                <div
-                    class="small-avatar"
-                    id="currentAvatar"
-                >
+                <div class="profile-avatar">
                     A
                 </div>
 
-                <span id="currentProfile">
-                    Perfil
-                </span>
-
-                <span class="arrow">
-                   ⌄
-                </span>
+                <div class="profile-name">
+                    Alex
+                </div>
 
             </button>
 
 
-            <div
-                class="profile-menu"
-                id="profileMenu"
+            <!-- AGREGAR PERFIL -->
+
+            <button
+                class="profile-item"
+                id="addProfile"
+                type="button"
             >
 
-                <button id="changeProfile">
-                    Cambiar perfil
-                </button>
+                <div class="profile-avatar add">
+                    +
+                </div>
 
+                <div class="profile-name">
+                    Agregar perfil
+                </div>
+
+                <div class="profile-add">
+                    Nuevo perfil
+                </div>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     APLICACIÓN PRINCIPAL
+========================================================= -->
+
+<div id="app">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="navbar">
+
+
+        <div class="logo">
+            NET<span>VISION</span>
+        </div>
+
+
+        <button
+            class="profile-button"
+            id="profileButton"
+            type="button"
+        >
+
+            <div
+                class="header-avatar"
+                id="headerAvatar"
+            >
+                A
             </div>
 
-        </header>
+            <span id="headerProfileName">
+                Alex
+            </span>
+
+            <span class="profile-arrow">
+               ⌄
+            </span>
+
+        </button>
+
+    </header>
 
 
-        <main class="home-content">
 
-            <div class="home-brand">
+    <!-- =====================================================
+         MENÚ
+    ====================================================== -->
+
+    <main class="main-menu">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-brand">
                 NETVISION
             </div>
 
-            <h1 class="home-title">
+            <h1>
                 Todo tu entretenimiento
-                <br>
                 <span>
                     en un solo lugar.
                 </span>
             </h1>
 
-            <p class="home-description">
+            <p>
                 Disfruta de televisión, películas y series
                 <br>
                 desde cualquier dispositivo.
             </p>
 
-
-            <div class="menu-cards">
-
-
-                <!-- TV -->
-
-                <article
-                    class="menu-card tv"
-                    id="tvButton"
-                >
-
-                    <div class="card-icon">
-
-                        <svg
-                            viewBox="0 0 100 100"
-                        >
-
-                            <rect
-                                x="15"
-                                y="27"
-                                width="70"
-                                height="50"
-                                rx="7"
-                            />
-
-                            <line
-                                x1="35"
-                                y1="17"
-                                x2="50"
-                                y2="27"
-                            />
-
-                            <line
-                                x1="65"
-                                y1="17"
-                                x2="50"
-                                y2="27"
-                            />
-
-                            <line
-                                x1="35"
-                                y1="84"
-                                x2="65"
-                                y2="84"
-                            />
-
-                        </svg>
-
-                    </div>
-
-                    <h2>
-                        TV
-                    </h2>
-
-                    <p>
-                        Ver canales en vivo
-                    </p>
-
-                    <div class="card-arrow">
-                        →
-                    </div>
-
-                </article>
+        </section>
 
 
-                <!-- PELÍCULAS -->
 
-                <article
-                    class="menu-card movies"
-                    id="moviesButton"
-                >
+        <!-- =================================================
+             OPCIONES
+        ================================================== -->
 
-                    <div class="card-icon">
-
-                        <svg
-                            viewBox="0 0 100 100"
-                        >
-
-                            <rect
-                                x="15"
-                                y="25"
-                                width="70"
-                                height="50"
-                                rx="5"
-                            />
-
-                            <line
-                                x1="15"
-                                y1="38"
-                                x2="85"
-                                y2="38"
-                            />
-
-                            <line
-                                x1="15"
-                                y1="62"
-                                x2="85"
-                                y2="62"
-                            />
-
-                            <line
-                                x1="32"
-                                y1="25"
-                                x2="40"
-                                y2="38"
-                            />
-
-                            <line
-                                x1="50"
-                                y1="25"
-                                x2="58"
-                                y2="38"
-                            />
-
-                            <line
-                                x1="68"
-                                y1="25"
-                                x2="76"
-                                y2="38"
-                            />
-
-                        </svg>
-
-                    </div>
-
-                    <h2>
-                        PELÍCULAS
-                    </h2>
-
-                    <p>
-                        Explora el catálogo
-                    </p>
-
-                    <div class="card-arrow">
-                        →
-                    </div>
-
-                </article>
+        <section class="menu-cards">
 
 
-                <!-- SERIES -->
+            <!-- =============================================
+                 TV
+            ============================================== -->
 
-                <article
-                    class="menu-card series"
-                    id="seriesButton"
-                >
+            <button
+                class="menu-card tv"
+                type="button"
+                onclick="openTV()"
+            >
 
-                    <div class="card-icon">
+                <div class="menu-icon">
 
-                        <svg
-                            viewBox="0 0 100 100"
-                        >
+                    <svg
+                        viewBox="0 0 100 100"
+                    >
 
-                            <rect
-                                x="15"
-                                y="27"
-                                width="70"
-                                height="50"
-                                rx="7"
-                            />
+                        <rect
+                            x="15"
+                            y="25"
+                            width="70"
+                            height="48"
+                            rx="8"
+                        />
 
-                            <polygon
-                                points="43,40 43,64 65,52"
-                                fill="currentColor"
-                                stroke="none"
-                            />
+                        <path
+                            d="M35 15 L50 25 L65 15"
+                        />
 
-                            <line
-                                x1="35"
-                                y1="17"
-                                x2="50"
-                                y2="27"
-                            />
+                        <path
+                            d="M38 83 H62"
+                        />
 
-                            <line
-                                x1="65"
-                                y1="17"
-                                x2="50"
-                                y2="27"
-                            />
+                    </svg>
 
-                        </svg>
-
-                    </div>
-
-                    <h2>
-                        SERIES
-                    </h2>
-
-                    <p>
-                        Explora el catálogo
-                    </p>
-
-                    <div class="card-arrow">
-                        →
-                    </div>
-
-                </article>
-
-            </div>
-
-        </main>
+                </div>
 
 
-        <footer class="footer">
-            © 2026 <span>NETVISION</span>
-            &nbsp; | &nbsp;
+                <h2>
+                    TV
+                </h2>
+
+                <p>
+                    Ver canales en vivo
+                </p>
+
+                <div class="menu-arrow">
+                    →
+                </div>
+
+            </button>
+
+
+
+            <!-- =============================================
+                 PELÍCULAS
+            ============================================== -->
+
+            <button
+                class="menu-card movies"
+                type="button"
+                onclick="openMovies()"
+            >
+
+                <div class="menu-icon">
+
+                    <svg
+                        viewBox="0 0 100 100"
+                    >
+
+                        <rect
+                            x="15"
+                            y="20"
+                            width="70"
+                            height="60"
+                            rx="7"
+                        />
+
+                        <path
+                            d="M15 35 H85"
+                        />
+
+                        <path
+                            d="M30 20 L40 35"
+                        />
+
+                        <path
+                            d="M50 20 L60 35"
+                        />
+
+                        <path
+                            d="M70 20 L80 35"
+                        />
+
+                        <path
+                            d="M38 50 H62"
+                        />
+
+                        <path
+                            d="M38 62 H62"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <h2>
+                    PELÍCULAS
+                </h2>
+
+                <p>
+                    Explora el catálogo
+                </p>
+
+                <div class="menu-arrow">
+                    →
+                </div>
+
+            </button>
+
+
+
+            <!-- =============================================
+                 SERIES
+            ============================================== -->
+
+            <button
+                class="menu-card series"
+                type="button"
+                onclick="openSeries()"
+            >
+
+                <div class="menu-icon">
+
+                    <svg
+                        viewBox="0 0 100 100"
+                    >
+
+                        <rect
+                            x="15"
+                            y="25"
+                            width="70"
+                            height="48"
+                            rx="8"
+                        />
+
+                        <path
+                            d="M50 73 V84"
+                        />
+
+                        <path
+                            d="M35 84 H65"
+                        />
+
+                        <polygon
+                            points="43,38 43,60 64,49"
+                            fill="currentColor"
+                            stroke="none"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <h2>
+                    SERIES
+                </h2>
+
+                <p>
+                    Explora el catálogo
+                </p>
+
+                <div class="menu-arrow">
+                    →
+                </div>
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <span>
+            © 2026
+            <strong>NETVISION</strong>
+        </span>
+
+        <span>
+            |
+        </span>
+
+        <span>
             Todos los derechos reservados.
-        </footer>
+        </span>
 
-    </section>
+    </footer>
 
 </div>
+
 
 
 <script>
@@ -1386,104 +2235,194 @@ button{
 ========================================================= */
 
 const profileScreen =
-    document.getElementById("profileScreen");
+    document.getElementById(
+        "profileScreen"
+    );
 
-const homeScreen =
-    document.getElementById("homeScreen");
+
+const app =
+    document.getElementById(
+        "app"
+    );
+
 
 const alexProfile =
-    document.getElementById("alexProfile");
+    document.getElementById(
+        "alexProfile"
+    );
+
 
 const addProfile =
-    document.getElementById("addProfile");
+    document.getElementById(
+        "addProfile"
+    );
+
 
 const profileButton =
-    document.getElementById("profileButton");
+    document.getElementById(
+        "profileButton"
+    );
 
-const profileMenu =
-    document.getElementById("profileMenu");
 
-const changeProfile =
-    document.getElementById("changeProfile");
+const headerAvatar =
+    document.getElementById(
+        "headerAvatar"
+    );
 
-const currentProfile =
-    document.getElementById("currentProfile");
 
-const currentAvatar =
-    document.getElementById("currentAvatar");
-
-const tvButton =
-    document.getElementById("tvButton");
-
-const moviesButton =
-    document.getElementById("moviesButton");
-
-const seriesButton =
-    document.getElementById("seriesButton");
+const headerProfileName =
+    document.getElementById(
+        "headerProfileName"
+    );
 
 
 /* =========================================================
-   PANTALLA COMPLETA
+   PERFIL ACTUAL
 ========================================================= */
 
-async function activateAppMode(){
-
-    try{
-
-        if(
-            !document.fullscreenElement &&
-            document.documentElement.requestFullscreen
-        ){
-
-            await document.documentElement
-                .requestFullscreen()
-                .catch(()=>{});
-
-        }
-
-    }catch(error){}
+let currentProfile =
+    sessionStorage.getItem(
+        "netvisionProfile"
+    );
 
 
-    /*
-     * En móviles compatibles,
-     * el bloqueo horizontal funciona
-     * cuando estamos en fullscreen.
-     */
+/* =========================================================
+   MOSTRAR APP
+========================================================= */
 
-    try{
+function showApp() {
 
-        if(
-            screen.orientation &&
-            screen.orientation.lock
-        ){
+    profileScreen.classList.add(
+        "hidden"
+    );
 
-            await screen.orientation
-                .lock("landscape")
-                .catch(()=>{});
 
-        }
+    setTimeout(
+        () => {
 
-    }catch(error){}
+            profileScreen.style.display =
+                "none";
+
+            app.classList.add(
+                "visible"
+            );
+
+        },
+        250
+    );
+
+
+    updateHeader();
 
 }
 
 
 /* =========================================================
-   SELECCIONAR PERFIL
+   ACTUALIZAR PERFIL
+========================================================= */
+
+function updateHeader() {
+
+    const name =
+        currentProfile ||
+        "Alex";
+
+
+    headerProfileName.textContent =
+        name;
+
+
+    headerAvatar.textContent =
+        name.charAt(0).toUpperCase();
+
+}
+
+
+/* =========================================================
+   ENTRAR AL SISTEMA
+========================================================= */
+
+async function enterWithProfile(
+    profileName
+) {
+
+    currentProfile =
+        profileName;
+
+
+    sessionStorage.setItem(
+        "netvisionProfile",
+        profileName
+    );
+
+
+    /*
+     * Intentar pantalla completa.
+     */
+
+    try {
+
+        if (
+            document.documentElement
+                .requestFullscreen
+        ) {
+
+            await document.documentElement
+                .requestFullscreen()
+                .catch(
+                    () => {}
+                );
+
+        }
+
+    } catch (error) {}
+
+
+    /*
+     * Intentar orientación horizontal.
+     *
+     * Algunos navegadores móviles no
+     * permiten bloquear la orientación.
+     * Si no lo permiten, el diseño
+     * responsive continúa funcionando.
+     */
+
+    try {
+
+        if (
+            screen.orientation &&
+            screen.orientation.lock
+        ) {
+
+            await screen.orientation
+                .lock(
+                    "landscape"
+                )
+                .catch(
+                    () => {}
+                );
+
+        }
+
+    } catch (error) {}
+
+
+    showApp();
+
+}
+
+
+/* =========================================================
+   ALEX
 ========================================================= */
 
 alexProfile.addEventListener(
     "click",
-    async ()=>{
+    () => {
 
-        sessionStorage.setItem(
-            "netvisionProfile",
+        enterWithProfile(
             "Alex"
         );
-
-        await activateAppMode();
-
-        showHome();
 
     }
 );
@@ -1495,7 +2434,7 @@ alexProfile.addEventListener(
 
 addProfile.addEventListener(
     "click",
-    ()=>{
+    () => {
 
         alert(
             "La creación de perfiles estará disponible próximamente."
@@ -1506,134 +2445,178 @@ addProfile.addEventListener(
 
 
 /* =========================================================
-   MOSTRAR HOME
-========================================================= */
-
-function showHome(){
-
-    profileScreen.style.display =
-        "none";
-
-    homeScreen.style.display =
-        "flex";
-
-    currentProfile.textContent =
-        sessionStorage.getItem(
-            "netvisionProfile"
-        ) || "Alex";
-
-}
-
-
-/* =========================================================
-   PERFIL
+   BOTÓN PERFIL
 ========================================================= */
 
 profileButton.addEventListener(
     "click",
-    (event)=>{
+    () => {
 
-        event.stopPropagation();
+        app.classList.remove(
+            "visible"
+        );
 
-        profileMenu.style.display =
-            profileMenu.style.display === "block"
-                ? "none"
-                : "block";
-
-    }
-);
-
-
-changeProfile.addEventListener(
-    "click",
-    async ()=>{
-
-        profileMenu.style.display =
-            "none";
-
-        homeScreen.style.display =
-            "none";
 
         profileScreen.style.display =
             "flex";
 
-        await activateAppMode();
 
-    }
-);
+        requestAnimationFrame(
+            () => {
 
+                profileScreen.classList.remove(
+                    "hidden"
+                );
 
-document.addEventListener(
-    "click",
-    ()=>{
-
-        profileMenu.style.display =
-            "none";
+            }
+        );
 
     }
 );
 
 
 /* =========================================================
-   NAVEGACIÓN
+   NAVEGACIÓN TV
 ========================================================= */
 
-tvButton.addEventListener(
-    "click",
-    ()=>{
-        window.location.href =
-            "tv.html";
-    }
-);
+function openTV() {
 
+    /*
+     * El navegador puede salir de
+     * fullscreen al cambiar de página.
+     * TV.html se encargará nuevamente
+     * de su propia interfaz.
+     */
 
-moviesButton.addEventListener(
-    "click",
-    ()=>{
-        window.location.href =
-            "peliculas.html";
-    }
-);
-
-
-seriesButton.addEventListener(
-    "click",
-    ()=>{
-        window.location.href =
-            "series.html";
-    }
-);
-
-
-/* =========================================================
-   RECUPERAR PERFIL
-========================================================= */
-
-const savedProfile =
-    sessionStorage.getItem(
-        "netvisionProfile"
-    );
-
-if(savedProfile){
-
-    currentProfile.textContent =
-        savedProfile;
+    window.location.href =
+        "tv.html";
 
 }
+
+
+/* =========================================================
+   NAVEGACIÓN PELÍCULAS
+========================================================= */
+
+function openMovies() {
+
+    window.location.href =
+        "peliculas.html";
+
+}
+
+
+/* =========================================================
+   NAVEGACIÓN SERIES
+========================================================= */
+
+function openSeries() {
+
+    window.location.href =
+        "series.html";
+
+}
+
+
+/* =========================================================
+   INICIO
+========================================================= */
+
+function initialize() {
+
+    /*
+     * IMPORTANTE:
+     * Siempre mostramos primero el selector
+     * de perfiles al abrir index.html.
+     *
+     * Esto mantiene el flujo:
+     *
+     * PERFIL
+     *   ↓
+     * MENÚ
+     *   ↓
+     * TV / PELÍCULAS / SERIES
+     */
+
+    app.classList.remove(
+        "visible"
+    );
+
+
+    profileScreen.style.display =
+        "flex";
+
+
+    profileScreen.classList.remove(
+        "hidden"
+    );
+
+
+    updateHeader();
+
+}
+
+
+/* =========================================================
+   INICIAR
+========================================================= */
+
+initialize();
 
 
 /* =========================================================
    EVITAR SCROLL
 ========================================================= */
 
-window.addEventListener(
-    "resize",
-    ()=>{
-        document.documentElement.style.height =
-            window.innerHeight + "px";
+document.addEventListener(
+    "touchmove",
+    event => {
 
-        document.body.style.height =
-            window.innerHeight + "px";
+        /*
+         * Solo evitamos el movimiento
+         * cuando la página principal
+         * está activa.
+         */
+
+        if (
+            app.classList.contains(
+                "visible"
+            )
+        ) {
+
+            event.preventDefault();
+
+        }
+
+    },
+    {
+        passive:
+            false
+    }
+);
+
+
+/* =========================================================
+   RESTAURAR ORIENTACIÓN AL SALIR
+========================================================= */
+
+window.addEventListener(
+    "pagehide",
+    () => {
+
+        try {
+
+            if (
+                screen.orientation &&
+                screen.orientation.unlock
+            ) {
+
+                screen.orientation.unlock();
+
+            }
+
+        } catch (error) {}
+
     }
 );
 
@@ -1641,3 +2624,4 @@ window.addEventListener(
 
 </body>
 </html>
+
